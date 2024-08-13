@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846785582531",
+    "project_id": "sojo-job-talent-acquisition",
+    "storage_bucket": "sojo-job-talent-acquisition.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846785582531:android:a9152beec9d56390f75976",
+        "android_client_info": {
+          "package_name": "com.example.sojojobtalentacquisition"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEkwQCVTNsOsPT0k3nIhXLYyFNOYGcQcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
