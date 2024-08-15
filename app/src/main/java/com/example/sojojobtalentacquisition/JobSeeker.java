@@ -1,9 +1,11 @@
 package com.example.sojojobtalentacquisition;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +29,7 @@ public class JobSeeker extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
 
+
    DatabaseReference mAllJobPost;
 
 
@@ -41,6 +44,7 @@ public class JobSeeker extends AppCompatActivity {
         toolbar = findViewById(R.id.alljobpostToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("All Job Post");
+
 
         recyclerView = findViewById(R.id.recyclerAllJob);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -68,7 +72,16 @@ public class JobSeeker extends AppCompatActivity {
                 holder.setJobDescription(model.getDescription());
                 holder.setJobSkills(model.getSkills());
                 holder.setJobSalary(model.getSalary());
+
+                holder.btnjobapply.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(JobSeeker.this, jobApplicationActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
+
 
             @NonNull
             @Override
@@ -81,13 +94,21 @@ public class JobSeeker extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
     public static class AllJobPostViewHolder extends RecyclerView.ViewHolder{
+        Button btnjobapply;
 
 
        View mView;
+
+
+
         public AllJobPostViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
+            btnjobapply = mView.findViewById(R.id.allJobPostApllyButton);
         }
+
+
+
         public void setJobTitle(String title){
             TextView mTitle = mView.findViewById(R.id.alljobTitle);
             mTitle.setText(title);

@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class JobPlatformActivity extends AppCompatActivity {
-    ImageView jobProvider, jobSeeker;
+    ImageView jobProvider, jobSeeker,aboutMe, accountDetails;
     Toolbar toolbar;
     ImageButton logout;
 
@@ -29,12 +29,23 @@ public class JobPlatformActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_job_platform);
 
+        aboutMe=findViewById(R.id.realProfileImage);
+        accountDetails=findViewById(R.id.accountDetailsImage);
         logout=findViewById(R.id.logoutButton);
         jobProvider=findViewById(R.id.jobProviderImage);
         jobSeeker=findViewById(R.id.jobSeekerImage);
         toolbar=findViewById(R.id.custom_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Sojo Job Platform");
+
+        aboutMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent aboutmeintent = new Intent(JobPlatformActivity.this, aboutme
+                        .class);
+                startActivity(aboutmeintent);
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

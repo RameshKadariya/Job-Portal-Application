@@ -1,5 +1,6 @@
 package com.example.sojojobtalentacquisition;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -80,14 +82,33 @@ public class JobProvider extends AppCompatActivity {
                         // Implement edit functionality
                         Intent intent = new Intent(JobProvider.this, EditJobPostActivity.class);
                         intent.putExtra("postId", getRef(position).getKey());
+                        intent.putExtra("title", model.getTitle());
+                        intent.putExtra("date", model.getDate());
+                        intent.putExtra("description", model.getDescription());
+                        intent.putExtra("skills", model.getSkills());
+                        intent.putExtra("salary", model.getSalary());
                         startActivity(intent);
+
+                        
+
+
                     }
                 });
                 holder.btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // Implement delete functionality
-                        getRef(position).removeValue();
+                        new AlertDialog.Builder(JobProvider.this)
+                                .setTitle("Delete Job Post")
+                                .setMessage("Are you sure you want to delete this job post?")
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        getRef(position).removeValue();
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.no, null)
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                     }
                 });
             }
@@ -104,13 +125,14 @@ public class JobProvider extends AppCompatActivity {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         View myview;
-        Button btnEdit, btnDelete;
+        Button btnEdit, btnDelete, btnSave;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             myview = itemView;
             btnEdit = myview.findViewById(R.id.btnEdit);
             btnDelete = myview.findViewById(R.id.btnDelete);
+            btnSave = myview.findViewById(R.id.btnSaveJob);
         }
 
         public void setJobTitle(String title) {
