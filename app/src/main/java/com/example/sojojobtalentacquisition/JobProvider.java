@@ -37,7 +37,7 @@ public class JobProvider extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_job_provider);
 
-        btnfloat = findViewById(R.id.fab);
+        btnfloat= findViewById(R.id.fab);
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = firebaseAuth.getCurrentUser();

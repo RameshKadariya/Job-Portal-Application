@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +23,7 @@ public class JobPlatformActivity extends AppCompatActivity {
     ImageView jobProvider, jobSeeker,aboutMe, accountDetails;
     Toolbar toolbar;
     ImageButton logout;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,21 @@ public class JobPlatformActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.custom_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Sojo Job Platform");
+
+
+
+
+        userId = getIntent().getStringExtra("userId");
+
+        accountDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent accountDetailsIntent = new Intent(JobPlatformActivity.this, accountDetails.class);
+                accountDetailsIntent.putExtra("userId", userId);
+                startActivity(accountDetailsIntent);
+            }
+        });
 
         aboutMe.setOnClickListener(new View.OnClickListener() {
             @Override

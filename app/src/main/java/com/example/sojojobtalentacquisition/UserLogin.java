@@ -27,6 +27,7 @@ public class UserLogin extends AppCompatActivity {
     Button btnlogin;
     FirebaseAuth firebaseAuth;
     ProgressBar loginprogress;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +63,11 @@ public class UserLogin extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                     if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                        userId= firebaseAuth.getCurrentUser().getUid();
                                         Toast.makeText(UserLogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
                                         Intent intent = new Intent(getApplicationContext(), JobPlatformActivity.class);
+                                        intent.putExtra("userId", userId);
                                         startActivity(intent);
                                         finish();
                                     }

@@ -56,6 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp">
 
                     <TextView
@@ -70,8 +71,9 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_weight="3"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:id="@+id/jobTitle"
+                        android:background="@drawable/edittextback"
                         android:hint="Enter Job Title"/>
                 </LinearLayout>
 
@@ -92,7 +94,9 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_weight="3"
-                        android:layout_height="wrap_content"
+
+                        android:layout_height="40dp"
+                        android:background="@drawable/edittextback"
                         android:id="@+id/jobDescription"
                         android:hint="Enter Job Description"/>
                 </LinearLayout>
@@ -115,8 +119,10 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_weight="3"
-                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/edittextback"
                         android:id="@+id/jobskill"
+                        android:layout_height="40dp"
                         android:hint="Enter the skill required"/>
                 </LinearLayout>
 
@@ -138,8 +144,9 @@
                         android:layout_width="0dp"
                         android:layout_weight="3"
                         android:layout_marginTop="10dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:id="@+id/jobSalary"
+                        android:background="@drawable/edittextback"
                         android:hint="Enter Salary"/>
                 </LinearLayout>
 

@@ -46,5 +46,7 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.firebase:firebase-database:20.0.0")
     implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    implementation ("androidx.paging:paging-runtime:3.1.1")
+    implementation ("com.firebaseui:firebase-ui-database:8.0.0")
 
 }
